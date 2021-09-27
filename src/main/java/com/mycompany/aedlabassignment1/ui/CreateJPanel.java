@@ -395,74 +395,156 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
          // TODO add your handling code here:
-        
-        if (txtName.getText()== null || txtName.getText().trim().isEmpty()) {
+        while (true) {   
+            if (txtName.getText()== null || txtName.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Name field Can't be Empty");
+            break;
         } else if (!Pattern.matches("[A-Za-z]+([ A-Za-z]+)*{20}", txtName.getText())) {
             JOptionPane.showMessageDialog(this, "Wrong input for name");
+            break;
         } else{
             userCreation.setName(txtName.getText());
            
         }
-        
+
         if (txtAddress.getText()==null || txtAddress.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "You Need to fill address");
+            break;
         } else if (!Pattern.matches("[/d A-Za-z0-9]", txtAddress.getText())) { 
             userCreation.setAddress(txtAddress.getText());
         } else{
             JOptionPane.showMessageDialog(this, "Your Address must start with digit eg Apt Number ");
+            break;
         }
         
         if (txtDOB.getText()==null || txtDOB.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter Date Of Birth");
+            break;
             
         } else if (!Pattern.matches("(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\\d\\d", txtDOB.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid DOB Input, Format - MM-DD-YYYY ");
+            break;
         } else{
            userCreation.setDateOfBirth(txtDOB.getText()); 
         }
         
          if (txtTelephone.getText()==null || txtTelephone.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Telephone number required");    
-        } else if (!Pattern.matches("^[1-9]{1}[0-9]{9}", (txtTelephone.getText()))) {
-            JOptionPane.showMessageDialog(this, "Enter US telephone number format  ");
+            JOptionPane.showMessageDialog(this, "Telephone number required");
+            break;
+        } else if (!Pattern.matches("[1-9]{1}[0-9]{9,9}", (txtTelephone.getText()))) {
+            JOptionPane.showMessageDialog(this, "Enter US telephone number format");
+            break;
         } else{
            long num = Long.parseLong(txtTelephone.getText());
            userCreation.setTelephone(num); 
         }
+         /*Test Cases
+         11111111222
+         +44 161 999 8888
+         011 44 (161) 999 8888
+         +1 (212) 222 8888
+         1-212-222 8888 */  
          
-         if (txtFaxNumber.getText()==null || txtFaxNumber.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Fax number required");    
+          if (txtFaxNumber.getText()==null || txtFaxNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fax number required");
+            break;
         } else if (!Pattern.matches("^(\\+?\\d{1,}(\\s?|\\-?)\\d*(\\s?|\\-?)\\(?\\d{2,}\\)?(\\s?|\\-?)\\d{3,}\\s?\\d{3,})$", txtFaxNumber.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Fax Number  ");
+            break;
         } else{
            userCreation.setFaxNumber(txtFaxNumber.getText()); 
         }
          
          if (txtEmailAddress.getText()==null || txtEmailAddress.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Email Address is Mandatory");
+            break;
             
         } else if (!Pattern.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$", txtEmailAddress.getText())) {
             JOptionPane.showMessageDialog(this, "Invalid Email Format");
+            break;
         } else{
            userCreation.setEmailAddress(txtEmailAddress.getText()); 
         }
         
+           if (txtSSN.getText()==null || txtSSN.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter SSN");
+            break;
+
+        } else if (!Pattern.matches("^(\\d{3}-?\\d{2}-?\\d{4}|XXX-XX-XXXX)$", txtSSN.getText())) {
+            JOptionPane.showMessageDialog(this, "Invalid SSN");
+            break;
+        } else{
+           userCreation.setSocialSecurityNumber(txtSSN.getText()); 
+        }
+           if (txtMedicalRecordNumber.getText()==null || txtMedicalRecordNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter MRN");
+            break;
+            
+        } else if (!Pattern.matches("[a-zA-Z0-9]{0,15}", txtMedicalRecordNumber.getText())) {
+            JOptionPane.showMessageDialog(this, "Invalid SSN");
+            break;
+        } else{
+           userCreation.setMedicalRecordNumber(txtMedicalRecordNumber.getText()); 
+        }
         
-        userCreation.setFaxNumber(txtFaxNumber.getText());
-        userCreation.setEmailAddress(txtEmailAddress.getText());
-        userCreation.setSocialSecurityNumber(txtSSN.getText());
-        userCreation.setMedicalRecordNumber(txtMedicalRecordNumber.getText());
-        userCreation.setHealthPlanBeneficiaryNumber(txtHealthPlanNumber.getText());
-        userCreation.setBankAccountNumber(txtBankAccountNumber.getText());
-        userCreation.setLicenseNumber(txtLicense.getText());
-        userCreation.setVehicleIndentificationSerialNumber(txtVehicleIndenticationNumber.getText());
+            if (txtHealthPlanNumber.getText()==null || txtHealthPlanNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter Health Plan Number");
+            break;
+            
+        } else if (!Pattern.matches("[a-zA-Z0-9]{0,15}", txtHealthPlanNumber.getText())) {
+            JOptionPane.showMessageDialog(this, "Invalid Health Plan Number");
+            break;
+        } else{
+           userCreation.setHealthPlanBeneficiaryNumber(txtHealthPlanNumber.getText()); 
+        }
+            if (txtBankAccountNumber.getText()==null || txtBankAccountNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "BankAccount number required"); 
+            break;
+        } else if (!Pattern.matches("^[1-9]{1}[0-9]{9}", (txtBankAccountNumber.getText()))) {
+            JOptionPane.showMessageDialog(this, " Invalid BankAccount Number ");
+            break;
+        } else{
+           long bankAccountNumber = Long.parseLong(txtBankAccountNumber.getText());
+           userCreation.setTelephone(bankAccountNumber); 
+        }   
+            
+            //MA- 1Alpha+10Numeric | 1Alpha+12Numeric
+            if (txtLicense.getText()==null || txtLicense.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter License");
+            break;
+            
+        } else if (Pattern.matches("[A-ZA-z]{1}[0-9]{10,12}", txtLicense.getText())) {
+            userCreation.setLicenseNumber(txtLicense.getText());
+        } else{
+            JOptionPane.showMessageDialog(this, "Invalid License Number"); 
+            break;
+        }
+             //MA-5digits
+            if (txtVehicleIndenticationNumber.getText()==null || txtVehicleIndenticationNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter Vehicle Number");
+            break;
+            
+        } else if (Pattern.matches("[A-Z]{2}+-+[0-9]{5,5}", txtVehicleIndenticationNumber.getText())) {
+            userCreation.setVehicleIndentificationSerialNumber(txtVehicleIndenticationNumber.getText());
+        } else{
+            JOptionPane.showMessageDialog(this, "Invalid Vehicle Identification Number");
+            break;
+        }
+            
+            //Unique id- passport 6-9 alphanumeric number
+             if (txtUniqueID.getText()==null || txtUniqueID.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter Health Plan Number");
+            break;
+        } else if (Pattern.matches("[A-Z0-9]{6,9}", txtUniqueID.getText())) {
+            userCreation.setUniqueIdentificationNumber(txtUniqueID.getText());
+        } else{
+            JOptionPane.showMessageDialog(this, "Invalid Unique ID");
+            break;
+        }
         userCreation.setDeviceIdentificationSerialNumber(txtDeviceIdentificationNumber.getText());
         userCreation.setLinkedin(txtLinkedIn.getText());
-        userCreation.setUniqueIdentificationNumber(txtUniqueID.getText());
-        
-        
         JOptionPane.showMessageDialog(this, "Information Saved.");
+        } 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased

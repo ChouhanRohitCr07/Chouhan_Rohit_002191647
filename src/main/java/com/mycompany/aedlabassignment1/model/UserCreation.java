@@ -19,7 +19,7 @@ public class UserCreation {
     private String socialSecurityNumber;
     private String medicalRecordNumber;
     private String healthPlanBeneficiaryNumber;
-    private String bankAccountNumber;
+    private long bankAccountNumber;
     private String licenseNumber;
     private String vehicleIndentificationSerialNumber;
     private String deviceIdentificationSerialNumber;
@@ -120,11 +120,11 @@ public class UserCreation {
         this.healthPlanBeneficiaryNumber = healthPlanBeneficiaryNumber;
     }
 
-    public String getBankAccountNumber() {
+    public long getBankAccountNumber() {
         return bankAccountNumber;
     }
 
-    public void setBankAccountNumber(String bankAccountNumber) {
+    public void setBankAccountNumber(long bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;
     }
 

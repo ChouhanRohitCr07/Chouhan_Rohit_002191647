@@ -415,7 +415,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtName.setText(userCreation.getName());
         txtAddress.setText(userCreation.getAddress());
         txtDOB.setText(userCreation.getDateOfBirth());
-        txtBankAccountNumber.setText(userCreation.getBankAccountNumber());
+        txtBankAccountNumber.setText(Long.toString(userCreation.getBankAccountNumber()));
         txtEmailAddress.setText(userCreation.getEmailAddress());
         txtFaxNumber.setText(userCreation.getFaxNumber());
         txtDeviceIdentificationNumber.setText(userCreation.getDeviceIdentificationSerialNumber());
@@ -433,7 +433,7 @@ public class ViewJPanel extends javax.swing.JPanel {
          try {
             File fileN1 = new File(userCreation.getImageSrc());
             bufferedImage1 = ImageIO.read(fileN1);
-            ImageIcon imageIcon1 =  new ImageIcon(bufferedImage1.getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+            ImageIcon imageIcon1 =  new ImageIcon(bufferedImage1.getScaledInstance(200, 200, Image.SCALE_SMOOTH));
             lblImage.setIcon(imageIcon1);
         } catch (IOException | NullPointerException e) {
         }
@@ -441,7 +441,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         try {
             File fileN = new File(userCreation.getFingerPrintImageSrc());
             bufferedImage = ImageIO.read(fileN);
-            ImageIcon imageIcon =  new ImageIcon(bufferedImage.getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+            ImageIcon imageIcon =  new ImageIcon(bufferedImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH));
             lblFingerPrint.setIcon(imageIcon);
         } catch (IOException | NullPointerException e) {
         }
