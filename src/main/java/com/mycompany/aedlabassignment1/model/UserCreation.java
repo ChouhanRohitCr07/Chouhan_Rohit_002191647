@@ -28,8 +28,26 @@ public class UserCreation {
     private String uniqueIdentificationNumber;
     private String ImageSrc;
     private String FingerPrintImageSrc;
+    private boolean imageBoolean= false;
+    private boolean fingerPrintBoolean =false;
+
+    public boolean isImageBoolean() {
+        return imageBoolean;
+    }
+
+    public void setImageBoolean(boolean imageBoolean) {
+        this.imageBoolean = imageBoolean;
+    }
+
+    public boolean isFingerPrintBoolean() {
+        return fingerPrintBoolean;
+    }
+
+    public void setFingerPrintBoolean(boolean fingerPrintBoolean) {
+        this.fingerPrintBoolean = fingerPrintBoolean;
+    }
     
-     public String getFingerPrintImageSrc() {
+    public String getFingerPrintImageSrc() {
         return FingerPrintImageSrc;
     }
 

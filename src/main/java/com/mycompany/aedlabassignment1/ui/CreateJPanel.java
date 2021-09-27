@@ -396,7 +396,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
          // TODO add your handling code here:
         while (true) {   
-            if (txtName.getText()== null || txtName.getText().trim().isEmpty()) {
+           if (txtName.getText()== null || txtName.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Name field Can't be Empty");
             break;
         } else if (!Pattern.matches("[A-Za-z]+([ A-Za-z]+)*{20}", txtName.getText())) {
@@ -443,7 +443,7 @@ public class CreateJPanel extends javax.swing.JPanel {
          +44 161 999 8888
          011 44 (161) 999 8888
          +1 (212) 222 8888
-         1-212-222 8888 */  
+         1-212-222 8888*/  
          
           if (txtFaxNumber.getText()==null || txtFaxNumber.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fax number required");
@@ -541,9 +541,20 @@ public class CreateJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Unique ID");
             break;
         }
+              if (!userCreation.isImageBoolean()) {
+            JOptionPane.showMessageDialog(this, "Upload Image");
+            break;
+        } 
+              if (!userCreation.isFingerPrintBoolean()) {
+            JOptionPane.showMessageDialog(this, "Upload FingerPrint");
+            break;
+        } 
+        
+             
         userCreation.setDeviceIdentificationSerialNumber(txtDeviceIdentificationNumber.getText());
         userCreation.setLinkedin(txtLinkedIn.getText());
         JOptionPane.showMessageDialog(this, "Information Saved.");
+        break;
         } 
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -566,6 +577,9 @@ public class CreateJPanel extends javax.swing.JPanel {
             String fFingerPrintString = FingerPrintFile.toString();
             userCreation.setFingerPrintImageSrc(fFingerPrintString);
             lblFingerPrint.setText(fFingerPrintString);
+            userCreation.setFingerPrintBoolean(true);
+            
+            
         }
     }//GEN-LAST:event_btnFingerPrintActionPerformed
 
@@ -579,6 +593,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             String fName = SelectedFile.toString();
             userCreation.setImageSrc(fName);
             lblImage.setText(fName);
+            userCreation.setImageBoolean(true);
         }
     }//GEN-LAST:event_btnImageActionPerformed
 
